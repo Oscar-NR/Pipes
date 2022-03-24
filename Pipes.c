@@ -18,17 +18,19 @@
 
 int main(int argc, char* argv[])
 {
+	int maxChar;
 	if(argc<2)
 	{
-		printf("Error: you need to send the limit of the size of the message\n");	
-		exit(1);
+		printf("You didn't added the max number of the character, so it will be 20  \n");	
+		maxChar = 20;
+	}else
+	{
+		maxChar = atoi(argv[1]);
 	}
 
 	int fd_pipe_Father_to_Child [2];
 	int fd_pipe_Child_to_Father [2];
-	int maxChar = atoi(argv[1]);
 	char message [512];
-	
 	
 	//Character to control the flow of the program
 	char control;
